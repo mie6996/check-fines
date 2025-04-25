@@ -2,6 +2,7 @@ import path from 'path';
 import AutoLoad from '@fastify/autoload';
 import RateLimit from '@fastify/rate-limit';
 import { fileURLToPath } from 'url';
+import { config } from './config/index.js';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -13,7 +14,7 @@ export default async function (app, opts) {
   })
 
   app.register(RateLimit, {
-    max: 60,
+    max: config.apiRateLimit,
     timeWindow: '1 minute'
   })
 }

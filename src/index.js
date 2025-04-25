@@ -12,7 +12,7 @@ const bootstrap = async () => {
   await app.ready();
 
   try {
-    await app.listen({ port: process.env.PORT ?? 3000 });
+    await app.listen({ port: +(process.env.PORT ?? 3000) });
   } catch (err) {
     app.log.error(err)
     process.exit(1)
