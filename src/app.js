@@ -13,7 +13,7 @@ export default async function (app, opts) {
   })
 
   app.register(RateLimit, {
-    max: 2,
+    max: 60,
     timeWindow: '1 minute'
   })
 }
